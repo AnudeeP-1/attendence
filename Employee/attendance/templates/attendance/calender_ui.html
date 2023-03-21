@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  {% load static %}
+  <style>
+    *{
+      margin: 10px;
+
+    }
+    .container {
+      
+      display: grid;
+      grid-template-columns: repeat(7 ,1fr);
+      row-gap: 50px;
+      align-items: center;
+      justify-content: center;
+      
+    }
+    .date{
+      text-align: center;
+      padding: 10px;
+      transition: 1s;
+      border-radius: 10px;
+      box-shadow: 1px solid #5f5e5e;
+    }
+    .date:hover {
+      background-color: yellow; 
+      scale: 1.2;
+    }
+
+    .date_row_0{
+      visibility: hidden;
+      grid-column: 2/span {{week_of_one}};
+
+    }
+    .week_name {
+      text-align: center;
+    }
+    input {
+      display: inline-block;
+      height: 10px;
+      width: 10px;
+    }
+    .visible_on_hover {
+      visibility: hidden;
+    }
+
+    .date:hover .visible_on_hover{
+      visibility: visible;
+    }
+    
+  </style>
+  <title>[Calender]📅</title>
+</head>
+<body>
+  <h1>For the year {{ year }}</h1>
+  <div class="container">
+    <div class="week_name">Sunday</div>
+    <div class="week_name">Monday</div>
+    <div class="week_name">Tuesday</div>
+    <div class="week_name">Wednesday</div>
+    <div class="week_name">Thursday</div>
+    <div class="week_name">Friday</div>
+    <div class="week_name">Saturday</div>
+    {% for i, j in total_days.items %}
+      <div class={{j}}>
+        <p>{{i}}</p>
+        <span class="visible_on_hover">Hours : 9</span>
+      </div>
+    {% endfor %}
+  </div>
+</body>
+</html>

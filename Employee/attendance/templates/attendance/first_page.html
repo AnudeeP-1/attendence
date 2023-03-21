@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>[Attendance] 😉First Page</title>
+
+  <style>
+    .form{
+      display: flex;
+      gap: 30px;
+    }
+    a {
+      display: inline-block;
+    }
+  </style>
+</head>
+<body>
+  <div class="form">
+    <form method="post">
+      {% csrf_token %}
+      <button><a href="{% url 'new-user' %}">New User</button>
+    </form>
+    <form method="post">
+      {% csrf_token %}
+      <button>Already member</button>
+    </form>
+  </div>
+</body>
+</html>
